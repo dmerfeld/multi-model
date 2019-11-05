@@ -16,6 +16,7 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
+            $table->integer('survey_id')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
         });

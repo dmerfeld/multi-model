@@ -42,16 +42,23 @@ class SurveyController extends Controller
     public function store(Request $request)
     {
 
+      $survey = new Survey();
+      $survey->user_id = 1;
+      $survey->save();
+
       $person = new Person();
       $person->name = $request->person_name;
+      $person->user_id = 1;
       $person->save();
 
       $education = new Education();
       $education->name = $request->education_name;
+      $education->user_id = 1;
       $education->save();
 
       $location = new Location();
       $location->name = $request->location_name;
+      $location->user_id = 1;
       $location->save();
 
       return view('welcome');
