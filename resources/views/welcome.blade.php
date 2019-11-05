@@ -65,35 +65,53 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+          <div style="max-width:500px; margin:0 auto; padding:0 20px;">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+          <form id="supplierAuditForm" class="mt-10" action="{{ route('surveys.store',2) }}" method="POST">
+            {{ csrf_field() }}
+            <input type="hidden" name="redirect" value="/surveys/2">
+            <input type="hidden" name="supplier_contact_id" value="">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <section class="section">
+            <div class="columns">
+              <div class="column">
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <h3 class="heading">Supplier Contact</h3>
+                <div class="card mb-20">
+                  <div class="card-content">
+                    <div class="columns">
+                      <div class="column is-3">
+                        <h3 class="heading">Education Name</h3>
+                        <input type="text" class="input is-medium mb-15" name="education_name" value="" id="education_name" placeholder="">
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <h3 class="heading"></h3>
+                <div class="card mb-20">
+                  <div class="card-content">
+                    <div class="columns">
+                      <div class="column is-half">
+                        <h3 class="heading mt-10">Location Name:</h3>
+                        <input type="text" class="input is-medium mb-15" name="location_name" value="" id="location_name" placeholder="">
+                      </div>
+                    </div>
+                    <div class="pl-10 pt-10 pb-20">
+                      <div class="columns">
+                        <div class="column is-half">
+                          <h3 class="heading mt-10">Person Name:</h3>
+                          <input type="text" class="input is-medium mb-15" name="person_name" value="" id="person_name" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="button is-primary" id="submit-button" name="submit">Submit</button>
+              </div>
             </div>
+            </section>
+          </form>
+          </div>
         </div>
     </body>
 </html>

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Survey;
+use App\Education;
+use App\Location;
+use App\Person;
+
+
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
@@ -17,9 +22,6 @@ class SurveyController extends Controller
         //
     }
 
-    public function page($page){
-        dd($page);
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +41,20 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $person = new Person();
+      $person->name = $request->person_name;
+      $person->save();
+
+      $education = new Education();
+      $education->name = $request->education_name;
+      $education->save();
+
+      $location = new Location();
+      $location->name = $request->location_name;
+      $location->save();
+
+      return view('welcome');
     }
 
     /**

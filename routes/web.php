@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/surveys/{page}','SurveyController@page');
+Route::post('/surveys/{page}','SurveyController@store')->name('surveys.store');
